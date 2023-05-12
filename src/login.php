@@ -73,14 +73,14 @@
         });
 
         return;
-      }      
+      }
 
       function showMessage() {
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('error')
 
         if (error) {
-          this.alertMessage()
+          this.alertMessage();
         }
       }
     </script>
@@ -92,24 +92,15 @@
         <img class="mb-4" src="/assets/logo.png" alt="" width="100%">
       <div id="alert"></div>
         <div class="form-floating">
-          <input type="email" class="form-control" id="Login" name="Login" placeholder="kkkk">
+          <input type="email" class="form-control" id="Login" name="Login" placeholder="nome@empresa.com">
           <label for="Login">Usuário</label>
         </div>
         <div class="form-floating">
           <input type="password" class="form-control" id="Pass" name="Pass" placeholder="Senha">
           <label for="Pass">Senha</label>
         </div>
-        <div class="row">
-          <div class="col-6">
-            <button class="w-100 btn btn-lg btn-login mt-2" type="submit">Entrar</button>
-          </div>
+        <button class="w-100 btn btn-lg btn-login mt-2" type="submit">Entrar</button>
       </form>
-        <div class="col-6">   
-          <form action="userCad.php" method="post">    
-              <button class="w-100 btn btn-lg btn-login mt-2" type="submit">Cadastrar</button>
-          </form>
-        </div>
-      </div>
     </main>
   </body>
 </html>
