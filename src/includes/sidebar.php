@@ -13,36 +13,18 @@
               Alunos
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file" class="align-text-bottom"></span>
-              OPTION 2
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="shopping-cart" class="align-text-bottom"></span>
-              OPTION 3
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users" class="align-text-bottom"></span>
-              OPTION 4
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2" class="align-text-bottom"></span>
-              OPTION 5
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers" class="align-text-bottom"></span>
-              OPTION 6
-            </a>
-          </li>
+          <?php 
+              $admin = isset($_SESSION['userAdmin']) ? $_SESSION['userAdmin'] : false;
+              if ($admin) {
+                echo '<li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="?page=usuarios">
+                          <span data-feather="home" class="align-text-bottom"></span>
+                          Usuários
+                        </a>
+                      </li>';
+              }
+          ?>          
+
         </ul>
 
       </div>

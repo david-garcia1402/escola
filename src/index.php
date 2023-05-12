@@ -45,6 +45,9 @@
                 switch ($page) {
                   case 'alunos':
                     include_once('views/alunos.php');
+                    break;                  
+                  case 'usuarios':
+                    include_once('views/usuarios.php');
                     break;
                   
                   default:
