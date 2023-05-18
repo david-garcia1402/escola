@@ -1,4 +1,5 @@
 <?php
+
   $logged = false;
   $GLOBALS['loginError'] = false;
 
