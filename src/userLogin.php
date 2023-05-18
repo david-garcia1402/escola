@@ -1,4 +1,5 @@
 <?php
+
   $logged = false;
   $GLOBALS['loginError'] = false;
 
@@ -9,27 +10,28 @@
     $login = $_POST['Login'];
     $pass  = $_POST['Pass'];
 
-    // $sql  = " SELECT users.id, ";
-    // $sql .=        " users.name, ";
-    // $sql .=        " users.password, ";
-    // $sql .=        " users.email ";
-    // $sql .=   " FROM users";
-    // $sql .=  " WHERE UPPER(users.email) = UPPER('{$login}') ";
+     $sql  = " SELECT users.id, ";
+     $sql .=        " users.name, ";
+     $sql .=        " users.pass, ";
+     $sql .=        " users.user, ";
+     $sql .=        " users.admin ";
+     $sql .=   " FROM users";
+     $sql .=  " WHERE UPPER(users.user) = UPPER('{$login}') ";
 
-    // $result = SmtConnection::getQuery($sql);
-    // $user   = SmtConnection::getData($result);
+     $result = SmtConnection::getQuery($sql);
+     $user   = SmtConnection::getData($result);
 
-    // if (SmtPass::verifyHash($pass, $user['password'])) 
-    if ($login == "admin@gmail.com") {
+    if (SmtPass::verifyHash($pass, $user['pass'])) {
       if (!isset($_SESSION)) {
         session_start();
       }
 
       $logged = true;
 
-      $_SESSION['userId']    = "1"; //$user['id'];
-      $_SESSION['userName']  = "admin"; //$user['name'];
-      $_SESSION['userEmail'] = $login;// $user['email'];
+      $_SESSION['userId']    = $user['id'];
+      $_SESSION['userName']  = $user['name'];
+      $_SESSION['userEmail'] = $user['email'];
+      $_SESSION['userAdmin'] = $user['admin'];
     }
   }
 

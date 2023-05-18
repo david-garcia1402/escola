@@ -1,7 +1,7 @@
 <?php
   class SmtConnection {
     private static function getConnection() {
-      require_once('conf.php');
+      require('conf.php');
       $connection = mysqli_connect($conf['dbHost'], $conf['dbUser'], $conf['dbPass'], $conf['dbDatabase']);
 
       return $connection;
