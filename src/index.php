@@ -44,6 +44,9 @@
                     break;                  
                   case 'usuarios':
                     include_once('views/usuarios.php');
+                    break;                  
+                  case 'professores':
+                    include_once('views/professores.php');
                     break;
                   
                   default:

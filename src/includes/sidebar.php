@@ -12,6 +12,18 @@
               <span data-feather="home" class="align-text-bottom"></span>
               Alunos
             </a>
+          </li>          
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="?page=professores">
+              <span data-feather="home" class="align-text-bottom"></span>
+              Professores
+            </a>
+          </li>          
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="?page=materias">
+              <span data-feather="home" class="align-text-bottom"></span>
+              Materias
+            </a>
           </li>
           <?php 
               $admin = isset($_SESSION['userAdmin']) ? $_SESSION['userAdmin'] : false;
