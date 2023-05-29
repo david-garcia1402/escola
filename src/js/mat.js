@@ -180,7 +180,6 @@ function matRegistered() {
     if (idProf == 0) {
       var message =
         '<div class="alert alert-danger alert-dismissible fade show" id="msg-alert">' +
-        '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
         "<strong>Erro,</strong> escolha pelo menos um professor para dar a matéria!" +
         "</div>";
   
