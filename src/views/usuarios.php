@@ -25,9 +25,9 @@
                 </div>
                 <div class="col-lg-4 col-md-5 col-12">
                     <div class="input-group">
-                        <button type="button" class="btn btn-primary" onclick="cadastroView()" title="Cadastrar usuário"><span class="fa fa-plus"></span></button>
-                        <input type="text" class="form-control" placeholder="Pesquisar usuário" id="userSearch">
-                        <button class="btn btn-outline-primary" type="button" id="button-addon2" onclick="userFilter()" title="Pesquisar usuário"><span class="fa fa-search"></span></button>
+                        <button type="button" class="btn btn-primary" onclick="cadastroUserView()" title="Cadastrar registro"><span class="fa fa-plus"></span></button>
+                        <input type="text" class="form-control" placeholder="Pesquisar registro" id="userSearch">
+                        <button class="btn btn-outline-primary" type="button" id="button-addon2" onclick="userFilter()" title="Pesquisar registro"><span class="fa fa-search"></span></button>
                         <button class="btn btn-outline-primary" type="button" id="button-addon2" onclick="userFilterClear()" title="Limpar filtro"><span class="fa fa-trash"></span></button>
                     </div>
                 </div>
