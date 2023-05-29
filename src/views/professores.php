@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../js/data.js"></script>
+    <script src="../js/prof.js"></script>
 </head>
     <body onload="profList()">
         <div class="pt-3 pb-2 mb-3 border-bottom">
@@ -14,12 +14,13 @@
                 </div>
                 <div class="col-lg-4 col-md-5 col-12">
                     <div class="input-group">
-                        <button type="button" class="btn btn-primary" onclick="cadastroView()" title="Cadastrar usuário"><span class="fa fa-plus"></span></button>
-                        <input type="text" class="form-control" placeholder="Pesquisar usuário" id="userSearch">
-                        <button class="btn btn-outline-primary" type="button" id="button-addon2" onclick="profFilter()" title="Pesquisar usuário"><span class="fa fa-search"></span></button>
+                        <button type="button" class="btn btn-primary" onclick="cadastroUserView()" title="Cadastrar registro"><span class="fa fa-plus"></span></button>
+                        <input type="text" class="form-control" placeholder="Pesquisar registro" id="userSearch">
+                        <button class="btn btn-outline-primary" type="button" id="button-addon2" onclick="profFilter()" title="Pesquisar registro"><span class="fa fa-search"></span></button>
                         <button class="btn btn-outline-primary" type="button" id="button-addon2" onclick="profFilterClear()" title="Limpar filtro"><span class="fa fa-trash"></span></button>
                     </div>
                 </div>
+                <div id="alertDel"></div>
             </div>
         </div>
         <!-- Modal -->
@@ -52,13 +53,7 @@
                             <label for="email" class="form-label">E-mail:</label>
                             <input type="email" id="profEmail" name="userEmail" class="form-control" placeholder = "Insira o e-mail do professor"required>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 mb-1" id="divPassword">  
-                            <label for="password">Senha:</label>
-                            <input type="password" id = "password" name="password" class="form-control mb-3" required>
-                        </div>
-                    </div>                    
+                    </div>                   
                     <div class="row">
                     <div class="col-3">
                         <button type="button" class="btn btn-primary btn-block" onclick="profRegistered()">Salvar</button>

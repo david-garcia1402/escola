@@ -25,8 +25,8 @@
         echo "<td>" . $row[3] . "</td>";
         echo "<td>";
         echo "<div>";
-        echo "<button type='button' class='btn btn-outline-danger btn-sm' style='max-width:30px; margin-right: 10px;' onclick='delUser(\"$row[0]\")' title='Excluir usuário'><span class='fa fa-trash'></span></button>";
-        echo "<button type='button' class='btn btn-outline-primary btn-sm' style='max-width:30px;' onclick='userEdit(\"$row[0]\")' title='Editar usuário'><span class='fa fa-edit'></span></button>";
+        echo "<button type='button' class='btn btn-outline-danger btn-sm' style='max-width:30px; margin-right: 10px;' onclick='delUser(\"$row[0]\")' title='Excluir registro'><span class='fa fa-trash'></span></button>";
+        echo "<button type='button' class='btn btn-outline-primary btn-sm' style='max-width:30px;' onclick='userEdit(\"$row[0]\")' title='Editar registro'><span class='fa fa-edit'></span></button>";
         echo "</div>";
         echo "</td>";
         echo "</tr>";
@@ -37,7 +37,7 @@
     $num_linhas = SmtConnection::getRows($listres);
     if($num_linhas == 0){
         echo"<div class='alert alert-info'>";
-        echo"<strong>Atenção!</strong> Não tem nenhum usuário listado neste momento.";
+        echo"<strong>Atenção!</strong> Não tem nenhum registro listado neste momento.";
         echo "<div class='button mx-auto'>";
         echo "</div>";
     }

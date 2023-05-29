@@ -22,7 +22,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="?page=materias">
               <span data-feather="home" class="align-text-bottom"></span>
-              Materias
+              Matérias
             </a>
           </li>
           <?php 
@@ -36,8 +36,6 @@
                       </li>';
               }
           ?>          
-
         </ul>
-
       </div>
     </nav>

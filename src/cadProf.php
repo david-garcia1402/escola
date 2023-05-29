@@ -5,8 +5,6 @@ if (!empty($_POST)) {
         $idUser = urldecode($_POST["idUser"]) ? urldecode($_POST["idUser"]) : "";
         $profName = urldecode($_POST["profName"]);
         $profEmail = urldecode($_POST["profEmail"]);
-        $normalpass = urldecode($_POST["password"]);
-        $pass = SmtPass::passHash($normalpass);
 
         $verificar = "";
         if(!empty($idUser)){
@@ -21,8 +19,8 @@ if (!empty($_POST)) {
             echo json_encode($retorno, JSON_UNESCAPED_UNICODE);
         }else{
             if(empty($idUser)){
-                    $sql = "INSERT into professores (name_prof, email_prof, pass)
-                    values ('{$profName}', '{$profEmail}', '{$pass}');";
+                    $sql = "INSERT into professores (name_prof, email_prof)
+                    values ('{$profName}', '{$profEmail}');";
                     $result = SmtConnection::getQuery($sql);
                     header('HTTP/1.0 200 OK');
                     $retorno['code']    = 200;

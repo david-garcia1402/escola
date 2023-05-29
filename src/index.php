@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="David">
-    <title>Login</title>
+    <title>Sistema escolar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -47,6 +47,9 @@
                     break;                  
                   case 'professores':
                     include_once('views/professores.php');
+                    break;                  
+                  case 'materias':
+                    include_once('views/materias.php');
                     break;
                   
                   default:
