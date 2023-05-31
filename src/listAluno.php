@@ -24,7 +24,8 @@
         echo "<td>";
         echo "<div>";
         echo "<button type='button' class='btn btn-outline-danger btn-sm' style='max-width:30px; margin-right: 10px;' onclick='delAluno(\"$row[0]\")' title='Excluir registro'><span class='fa fa-trash'></span></button>";
-        echo "<button type='button' class='btn btn-outline-primary btn-sm' style='max-width:30px;' onclick='alunoEdit(\"$row[0]\")' title='Editar registro'><span class='fa fa-edit'></span></button>";
+        echo "<button type='button' class='btn btn-outline-primary btn-sm' style='max-width:30px; margin-right: 10px;' onclick='alunoEdit(\"$row[0]\")' title='Editar registro'><span class='fa fa-edit'></span></button>";
+        echo "<button type='button' class='btn btn-outline-primary btn-sm' style='max-width:30px;' onclick='showBoletim(\"$row[0]\")' title='Visualizar boletim'><span class='fa fa-mortar-board'></span></button>";
         echo "</div>";
         echo "</td>";
         echo "</tr>";

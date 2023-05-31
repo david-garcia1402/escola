@@ -72,10 +72,10 @@
                             </div>
                         </div>
                     </div>
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
     <!--Lista-->
     <div class="container">
         <div class="row">
@@ -84,6 +84,43 @@
             </div>
         </div>
     </div>
+    <!--Boletim-->
+<div class="modal fade" id="boletim" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title" id="modal-title"><div id="nomedoaluno"></div></h2>
+            <h2 class="modal-turno" id="modal-turno"><div id="turnodoaluno"></div></h2>
+        </div>
+            <div class="modal-body" id="boletim">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h3>MATÉRIA:</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <h3>1º BIMESTRE:</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <h3>2º BIMESTRE:</h3>
+                        </div>
+                        <div class="col-md-3">
+                            <h3>3º BIMESTRE:</h3>
+                        </div>
+                    </div>
+                    <div id="materiasnotas"></div>
+                    </div>
+                    <footer>
+                        <div class="col-md-10"></div>
+                        <div class="col-md-2">
+                            <button type="button" onclick="saveTeste()" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 
