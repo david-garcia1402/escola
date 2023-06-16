@@ -93,6 +93,7 @@
             <h2 class="modal-turno" id="modal-turno"><div id="turnodoaluno"></div></h2>
         </div>
             <div class="modal-body" id="boletim">
+                <div id="alert"></div>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-3">

@@ -6,6 +6,7 @@ if (!empty($_POST)) {
     $matName = urldecode($_POST["matName"]);
     $listProf = urldecode($_POST["listProf"]) ? explode(",", urldecode($_POST["listProf"])) : array();
 
+
     if (count($listProf) == 0) {
         header('HTTP/1.0 400 Bad Request');
         $retorno['code']    = 400;
