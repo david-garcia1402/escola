@@ -12,16 +12,19 @@
     $retorno['turno']    = $user_data['turno'];
     $retorno['materias'] = array();
         
-    $sql = "SELECT id, nome from materias;";
+    $sql = "select alunos.id as 'id do aluno', alunos.nome as 'aluno', materias.nome as 'materia', boletim.b1notas, boletim.b2notas, boletim.b3notas 
+            from boletim, alunos, materias 
+            where boletim.idAluno = alunos.id and boletim.idMate = materias.id 
+            order by alunos.id asc;;";
     $res = SmtConnection::getQuery($sql);
       
     while($row = mysqli_fetch_row($res)) {
         $materia = array(
             "id" => $row[0],
-            "nome" => $row[1],
-            "b1" => "",
-            "b2" => "",
-            "b3" => ""
+            "nome" => $row[2],
+            "b1" => $row[3],
+            "b2" => $row[4],
+            "b3" => $row[5]
         );
         $retorno['materias'][] = $materia;
     }

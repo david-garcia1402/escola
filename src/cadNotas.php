@@ -25,12 +25,18 @@ if (!empty($_POST)) {
 
             }
     } else {
+        $del = "delete from boletim where idAluno = '{$idAluno}'";
+        $res = SmtConnection::getQuery($del);
         foreach ($vetor as $valores) {
             $idmat =  $valores['id'];
             $b1 = $valores['b1'];
             $b2 = $valores['b2'];
             $b3 = $valores['b3'];
         
+            $sql1 = "insert into boletim (b1notas, b2notas, b3notas, idMate,  idAluno) 
+            values ('{$b1}', '{$b2}', '{$b3}', '{$idmat}', '{$idAluno}')";
+            $res = SmtConnection::getQuery($sql1);
+
             $update = "update boletim set b1notas = '{$b1}', b2notas = '{$b2}', b3notas = '{$b3}' where idAluno = '{$idAluno}' and idMate = '{$idmat}'";
             
             $res = SmtConnection::getQuery($update);

@@ -134,19 +134,19 @@ function showBoletim(idAluno) {
         listmat +=
           "      <input type='number' min='0' max='10'  style='width: 163px;' id='" +
           materias.id +
-          "b1' value=" + materias.b1 + ">";
+          "b1' value='" + materias.b1 + "'>";
         listmat += "</div>";
         listmat += "<div class='col-md-3'>";
         listmat +=
           "          <input type='number' min='0' max='10'  style='width: 163px;' id='" +
           materias.id +
-          "b2'  value=" + materias.b2 + ">";
+          "b2'  value='"+ materias.b2 +"'>";
         listmat += "</div>";
         listmat += "<div class='col-md-3'>";
         listmat +=
           "   <input type='number' min='0' max='10'  style='width: 163px;' id='" +
           materias.id +
-          "b3'  value=" + materias.b3 + ">";
+          "b3'  value='" + materias.b3 + "'>";
         listmat += "</div>";
       });
       listmat += "</div>";
