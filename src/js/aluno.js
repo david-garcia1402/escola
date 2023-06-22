@@ -134,20 +134,21 @@ function showBoletim(idAluno) {
         listmat +=
           "      <input type='number' min='0' max='10'  style='width: 163px;' id='" +
           materias.id +
-          "b1' value='" + materias.b1 + "'>";
+          "b1' value=" + materias.b1 + ">";
         listmat += "</div>";
         listmat += "<div class='col-md-3'>";
         listmat +=
           "          <input type='number' min='0' max='10'  style='width: 163px;' id='" +
           materias.id +
-          "b2'  value='"+ materias.b2 +"'>";
+          "b2'  value=" + materias.b2 + ">";
         listmat += "</div>";
         listmat += "<div class='col-md-3'>";
         listmat +=
           "   <input type='number' min='0' max='10'  style='width: 163px;' id='" +
           materias.id +
-          "b3'  value='" + materias.b3 + "'>";
+          "b3'  value=" + materias.b3 + ">";
         listmat += "</div>";
+
       });
       listmat += "</div>";
       document.getElementById("materiasnotas").innerHTML = listmat;
@@ -160,49 +161,17 @@ function showBoletim(idAluno) {
   xmlhttp.send();
 }
 
-function saveTeste() {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      var message =
-        '<div class="alert alert-success alert-dismissible fade show" id="msg-alert">' +
-        "Registrado com sucesso!" +
-        "</div>";
-      document.getElementById("alert").innerHTML = message;
-
-      $("#msg-alert")
-        .fadeTo(2000, 500)
-        .slideUp(500, function () {
-          $("#msg-alert").slideUp(500);
-        });
+function saveTeste(){
+    var boletim = [];
+    if (localStorage.boletim) {
+        boletim = JSON.parse(localStorage.boletim);
     }
-  };
-  var boletim = [];
-  if (localStorage.boletim) {
-    boletim = JSON.parse(localStorage.boletim);
-  }
-  if (boletim.materias) {
-    boletim.materias.forEach((materia) => {
-      listNotas = [
-        (materia.b1 = document.getElementById(materia.id + "b1").value),
-        (materia.b2 = document.getElementById(materia.id + "b2").value),
-        (materia.b3 = document.getElementById(materia.id + "b3").value),
-      ];
-    });
-  }
-  var params =
-    "idAluno=" +
-    encodeURIComponent(boletim.id) +
-    "&alunoNome=" +
-    encodeURIComponent(boletim.nome) +
-    "&listNotas=" +
-    encodeURIComponent(JSON.stringify(boletim.materias));
-
-  console.log(params);
-
-  localStorage.boletim = JSON.stringify(boletim);
-
-  xmlhttp.open("POST", "cadNotas.php", true);
-  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlhttp.send(params);
+    if (boletim.materias) {
+        boletim.materias.forEach((materia) => {
+            materia.b1 = document.getElementById(materia.id + "b1").value;
+            materia.b2 = document.getElementById(materia.id + "b2").value;
+            materia.b3 = document.getElementById(materia.id + "b3").value;
+          });
+    }
+   
 }
