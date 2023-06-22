@@ -28,18 +28,17 @@
         }        
     }
 
-    $sql2 = "select alunos.id as 'idaluno', alunos.nome as 'idmat', materias.nome, boletim.b1notas, boletim.b2notas, boletim.b3notas 
-    from boletim, alunos, materias 
-    where boletim.idAluno = alunos.id and boletim.idMate = materias.id 
-    order by alunos.id asc;";
+    $sql2 = "select materias.id as 'idmat', materias.nome, boletim.b1notas, boletim.b2notas, boletim.b3notas 
+    from alunos, materias, boletim 
+    where boletim.idMate  = materias.id and boletim.idAluno = alunos.id; ";
     $res2 = SmtConnection::getQuery($sql2);
     while($row = mysqli_fetch_row($res2)) {
         $materia = array(
             "id" => $row[0],
-            "nome" => $row[2],
-            "b1" => $row[3],
-            "b2" => $row[4],
-            "b3" => $row[5]
+            "nome" => $row[1],
+            "b1" => $row[2],
+            "b2" => $row[3],
+            "b3" => $row[4]
         );
         $retorno['materias'][] = $materia;
     }
