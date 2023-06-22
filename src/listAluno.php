@@ -20,7 +20,7 @@
         echo "<tr>";
         echo "<td>" . $row[0] . "</td>";
         echo "<td>" . $row[1] . "</td>";
-        echo "<td>" . $row[2] . "</td>";
+        echo "<td>" . strtoupper($row[2]) . "</td>";
         echo "<td>";
         echo "<div>";
         echo "<button type='button' class='btn btn-outline-danger btn-sm' style='max-width:30px; margin-right: 10px;' onclick='delAluno(\"$row[0]\")' title='Excluir registro'><span class='fa fa-trash'></span></button>";

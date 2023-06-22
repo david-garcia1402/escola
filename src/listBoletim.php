@@ -1,6 +1,7 @@
 <?php 
     require("utils/conection.php");
     ini_set('display_errors', 1);
+    global $idAluno; 
     $idAluno = $_GET["idAluno"];
     
     $sqlaluno = "select id, nome, turno from alunos where id = '{$idAluno}'";
@@ -9,13 +10,13 @@
     $user_data = mysqli_fetch_assoc($resaluno);
     $retorno['id']    = $user_data['id']; 
     $retorno['nome']    = $user_data['nome'];
-    $retorno['turno']    = $user_data['turno'];
+    $retorno['turno']    = strtoupper($user_data['turno']);
     $retorno['materias'] = array();
         
-    $sql = "select alunos.id as 'idaluno', alunos.nome as 'idmat', materias.nome, boletim.b1notas, boletim.b2notas, boletim.b3notas 
-            from boletim, alunos, materias 
-            where boletim.idAluno = alunos.id and boletim.idMate = materias.id 
-            order by alunos.id asc;";
+    $sql = "
+    select materias.id as 'idmat', materias.nome, boletim.b1notas, boletim.b2notas, boletim.b3notas 
+        from materias, boletim 
+        where boletim.idMate  = materias.id and boletim.idAluno = '{$idAluno}'; ";
     $ressql = SmtConnection::getQuery($sql);
     $res = mysqli_num_rows($ressql);
     if ($res == 0) {
@@ -28,9 +29,10 @@
         }        
     }
 
-    $sql2 = "select materias.id as 'idmat', materias.nome, boletim.b1notas, boletim.b2notas, boletim.b3notas 
-    from alunos, materias, boletim 
-    where boletim.idMate  = materias.id and boletim.idAluno = alunos.id; ";
+    $sql2 = "
+    select materias.id as 'idmat', materias.nome, boletim.b1notas, boletim.b2notas, boletim.b3notas 
+        from materias, boletim 
+        where boletim.idMate  = materias.id and boletim.idAluno = '{$idAluno}';  ";
     $res2 = SmtConnection::getQuery($sql2);
     while($row = mysqli_fetch_row($res2)) {
         $materia = array(

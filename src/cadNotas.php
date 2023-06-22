@@ -11,7 +11,7 @@ if (!empty($_POST)) {
 
     $validacao = "select * from boletim where idAluno = '{$idAluno}'";
     $res = SmtConnection::getQuery($validacao);
-
+    
     if (SmtConnection::getRows($res) == 0) {
         foreach ($vetor as $valores) {
             $idmat =  $valores['id'];
