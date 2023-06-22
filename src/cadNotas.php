@@ -78,3 +78,4 @@ if (!empty($_POST)) {
     // $retorno['message'] = "<strong>Matéria cadastrada com sucesso.</strong>";
     // echo json_encode($retorno, JSON_UNESCAPED_UNICODE);
 }
+
