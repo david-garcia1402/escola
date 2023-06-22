@@ -131,22 +131,13 @@ function showBoletim(idAluno) {
       retorno.materias.forEach((materias) => {
         listmat += "<div class='col-sm-3'><h4>" + materias.nome + "</h4></div>";
         listmat += "<div class='col-md-3'>";
-        listmat +=
-          "      <input type='number' min='0' max='10'  style='width: 163px;' id='" +
-          materias.id +
-          "b1' value=" + materias.b1 + ">";
+        listmat += "      <input type='number' min='0' max='10' style='width: 163px;' id='"+ retorno.materias.id + "b1' value='0'>";
         listmat += "</div>";
         listmat += "<div class='col-md-3'>";
-        listmat +=
-          "          <input type='number' min='0' max='10'  style='width: 163px;' id='" +
-          materias.id +
-          "b2'  value=" + materias.b2 + ">";
+        listmat += "          <input type='number' min='0' max='10' style='width: 163px;' id='"+ retorno.materias.id + "b2'  value='0'>";
         listmat += "</div>";
         listmat += "<div class='col-md-3'>";
-        listmat +=
-          "   <input type='number' min='0' max='10'  style='width: 163px;' id='" +
-          materias.id +
-          "b3'  value=" + materias.b3 + ">";
+        listmat += "   <input type='number' min='0' max='10' style='width: 163px;' id='"+ retorno.materias.id + "b3'  value='0'>";
         listmat += "</div>";
 
       });
