@@ -55,8 +55,6 @@ function alunoRegistered() {
     "&turno=" +
     encodeURIComponent(turnoContent);
 
-  console.log(params);
-
   xmlhttp.open("POST", "cadAluno.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.send(params);
@@ -101,7 +99,6 @@ function alunoEdit(idAluno) {
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var retorno = JSON.parse(this.responseText);
-      console.log(retorno);
       if (retorno) {
         document.getElementById("idAluno").value = retorno.id;
         document.getElementById("alunoNome").value = retorno.nome;
@@ -123,10 +120,8 @@ function showBoletim(idAluno) {
     if (this.readyState == 4 && this.status == 200) {
       var retorno = JSON.parse(this.responseText);
       localStorage.boletim = JSON.stringify(retorno);
-      console.log(retorno);
       var listmat = "";
       listmat += "<div class='row'>";
-      console.log(retorno.materias);
 
       retorno.materias.forEach((materias) => {
         listmat += "<div class='col-sm-3'><h4>" + materias.nome + "</h4></div>";
@@ -162,7 +157,6 @@ function saveTeste() {
       retorno.message +
       "</div>";
       document.getElementById("alertboletim").innerHTML = message;
-      console.log(message);
     $("#msg-alert")
       .fadeTo(2000, 500)
       .slideUp(500, function () {
@@ -193,8 +187,6 @@ function saveTeste() {
   encodeURIComponent(alunoNome) +
   "&listNotas=" +
   encodeURIComponent(JSON.stringify(boletim.materias));
-
-  console.log(params);
 
   localStorage.boletim = JSON.stringify(boletim);
 
