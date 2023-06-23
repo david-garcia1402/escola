@@ -7,7 +7,6 @@
         $where = " and materias.nome like  '%{$filtro}%'";
     }
 
-    ini_set('display_errors', 1);
     $sql = 'select materias.id, materias.nome, GROUP_CONCAT(professores.name_prof SEPARATOR ", ")'; 
     $sql .= 'from professores, materias, materiasProfessores ';
     $sql .=  'where materiasProfessores.idMat = materias.id ';
