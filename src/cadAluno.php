@@ -23,16 +23,42 @@ if(!empty($_POST)){
     }
     
     if (empty($idAluno)){
+        //Inserir o aluno no sistema//
         $sql = "INSERT INTO alunos (nome, turno)";
         $sql .= " VALUES ('{$alunoNome}', '{$turno}')";
         $res = SmtConnection::getQuery($sql);
+            
+        //Inserir o boletim padrão dele com os zeros//
+        $sqlmax = "select MAX(id) from alunos";
+        $res = SmtConnection::getQuery($sqlmax);
         if ($res) {
-            header('HTTP/2.0 200 Bad Request');
-            $retorno['code']    = 200;
-            $retorno['message'] = "<strong>Aluno(a) cadastrado com sucesso.</strong>";
-            echo json_encode($retorno, JSON_UNESCAPED_UNICODE);
-            return;
+            $row = mysqli_fetch_row($res);
+            $idAluno = $row[0];
         }
+
+        
+        $sql1 = "
+        select materias.id as 'idmat', materias.nome, boletim.b1notas, boletim.b2notas, boletim.b3notas 
+            from materias, boletim 
+            where boletim.idMate  = materias.id and boletim.idAluno = '{$idAluno}'; ";
+        $ressql = SmtConnection::getQuery($sql1);
+        $res = mysqli_num_rows($ressql);
+        if ($res == 0) {
+            $sqlmat = "select id, nome from materias";
+            $resultmat = SmtConnection::getQuery($sqlmat);
+            while ($vetmat = mysqli_fetch_assoc($resultmat)) {
+                $idMateria = $vetmat['id'];
+                $sqlnotas = "insert into boletim (b1notas, b2notas, b3notas, idMate, idAluno) values (0, 0, 0, '{$idMateria}' , '{$idAluno}')";
+                $res = SmtConnection::getQuery($sqlnotas);
+            }        
+        }
+
+        header('HTTP/2.0 200 Bad Request');
+        $retorno['code']    = 200;
+        $retorno['message'] = "<strong>Aluno(a) cadastrado com sucesso.</strong>";
+        echo json_encode($retorno, JSON_UNESCAPED_UNICODE);
+        return;
+        
     }else{
         $sql = "UPDATE alunos set nome = '{$alunoNome}', turno = '{$turno}' where id = '{$idAluno}'";
         $res = SmtConnection::getQuery($sql);

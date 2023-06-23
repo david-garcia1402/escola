@@ -156,12 +156,13 @@ function saveTeste() {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
+      var retorno = JSON.parse(this.responseText);
       var message =
       '<div class="alert alert-success alert-dismissible fade show" id="msg-alert">' +
-      "Registrado com sucesso!" +
+      retorno.message +
       "</div>";
-      document.getElementById("alert").innerHTML = message;
-
+      document.getElementById("alertboletim").innerHTML = message;
+      console.log(message);
     $("#msg-alert")
       .fadeTo(2000, 500)
       .slideUp(500, function () {

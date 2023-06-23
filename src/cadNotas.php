@@ -22,8 +22,14 @@ if (!empty($_POST)) {
             $sql = "insert into boletim (b1notas, b2notas, b3notas, idMate,  idAluno) 
                      values ('{$b1}', '{$b2}', '{$b3}', '{$idmat}', '{$idAluno}')";
             $res = SmtConnection::getQuery($sql);
-
             }
+
+            header('HTTP/2.0 200 OK');
+            $retorno['code']    = 200;
+            $retorno['message'] = "Notas inseridas.";
+            echo json_encode($retorno, JSON_UNESCAPED_UNICODE);
+            return;
+
     } else {
         $del = "delete from boletim where idAluno = '{$idAluno}'";
         $res = SmtConnection::getQuery($del);
@@ -41,6 +47,12 @@ if (!empty($_POST)) {
             
             $res = SmtConnection::getQuery($update);
         }
+
+        header('HTTP/2.0 200 OK');
+        $retorno['code']    = 200;
+        $retorno['message'] = "Notas inseridas.";
+        echo json_encode($retorno, JSON_UNESCAPED_UNICODE);
+        return;
     }
 
     // if (!empty($idAluno)) {

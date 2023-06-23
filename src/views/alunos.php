@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
+    <!-- Modal aluno-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
@@ -32,8 +32,8 @@
                     <h2 class="modal-title " id="titleRegister">CADASTRO:</h2>
                     <h2 class="modal-title" id="titleEdit">EDITAR MATÉRIA:</h2>
                 </div>
+                <div id="alert"></div>
                 <div class="modal-body">
-                    <div id="alert"></div>
                     <form class="was-validated">
                         <input type="hidden">
                         <div class="container">
@@ -93,6 +93,7 @@
             <h2 class="modal-turno" id="modal-turno"><div id="turnodoaluno"></div></h2>
         </div>
             <div class="modal-body" id="boletim">
+            <div id="alertboletim"></div>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-3">
@@ -111,9 +112,14 @@
                     <div id="materiasnotas"></div>
                     </div>
                     <footer>
-                        <div class="col-md-10"></div>
-                        <div class="col-md-2">
-                            <button type="button" onclick="saveTeste()" class="btn btn-primary">Salvar</button>
+                        <div class="row mt-3">
+                            <div class="col-md-10"></div>
+                            <div class="col-md-1">
+                                <button type="button" onclick="saveTeste()" class="btn btn-primary">Salvar</button>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            </div>
                         </div>
                     </footer>
                 </div>

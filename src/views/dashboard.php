@@ -14,15 +14,15 @@
                     </div>
                     <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <a href="aboutMe.html" target="_blank"><img src="img/Messaging-cuate.svg" class="d-block w-100 " style="margin-bottom: 80px;" alt="..." height="500px"></a> 
+                        <a href="aboutMe.html" target="_blank"><img src="assets/professor.svg" class="d-block w-100 " style="margin-bottom: 80px;" alt="..." height="500px"></a> 
                         <div class="carousel-caption" id="aboutme">
-                            <h2 class="text-dark" >About ME <h6 class="text-dark">click on img.</h6></h2>
+                            <h2 class="text-dark" >Professores</h2>
                         </div>
                     </div>
                     <div class="carousel-item " >
-                        <a href="projects.html" target="_blank"><img src="img/Code typing-amico.svg" class="d-block w-100" style="margin-bottom: 80px;" alt="..." height="500px"></a>
+                        <a href="projects.html" target="_blank"><img src="assets/aluno.svg" class="d-block w-100" style="margin-bottom: 80px;" alt="..." height="500px"></a>
                         <div class="carousel-caption" id="projects">
-                            <h2 class="text-dark" >Projects <h6 class="text-dark">click on img.</h6></h2>
+                            <h2 class="text-dark" >Alunos </h2>
                         </div>
                     </div>
                     </div>

@@ -12,29 +12,25 @@
     $retorno['nome']    = $user_data['nome'];
     $retorno['turno']    = strtoupper($user_data['turno']);
     $retorno['materias'] = array();
-        
+      
+    global $sql;
     $sql = "
     select materias.id as 'idmat', materias.nome, boletim.b1notas, boletim.b2notas, boletim.b3notas 
         from materias, boletim 
         where boletim.idMate  = materias.id and boletim.idAluno = '{$idAluno}'; ";
     $ressql = SmtConnection::getQuery($sql);
-    $res = mysqli_num_rows($ressql);
-    if ($res == 0) {
-        $sqlmat = "select id, nome from materias";
-        $resultmat = SmtConnection::getQuery($sqlmat);
-        while ($vetmat = mysqli_fetch_assoc($resultmat)) {
-            $idMateria = $vetmat['id'];
-            $sqlnotas = "insert into boletim (b1notas, b2notas, b3notas, idMate, idAluno) values (0, 0, 0, '{$idMateria}' , '{$idAluno}')";
-            $res = SmtConnection::getQuery($sqlnotas);
-        }        
-    }
+    // $res = mysqli_num_rows($ressql);
+    // if ($res == 0) {
+    //     $sqlmat = "select id, nome from materias";
+    //     $resultmat = SmtConnection::getQuery($sqlmat);
+    //     while ($vetmat = mysqli_fetch_assoc($resultmat)) {
+    //         $idMateria = $vetmat['id'];
+    //         $sqlnotas = "insert into boletim (b1notas, b2notas, b3notas, idMate, idAluno) values (0, 0, 0, '{$idMateria}' , '{$idAluno}')";
+    //         $res = SmtConnection::getQuery($sqlnotas);
+    //     }        
+    // }
 
-    $sql2 = "
-    select materias.id as 'idmat', materias.nome, boletim.b1notas, boletim.b2notas, boletim.b3notas 
-        from materias, boletim 
-        where boletim.idMate  = materias.id and boletim.idAluno = '{$idAluno}';  ";
-    $res2 = SmtConnection::getQuery($sql2);
-    while($row = mysqli_fetch_row($res2)) {
+    while($row = mysqli_fetch_row($ressql)) {
         $materia = array(
             "id" => $row[0],
             "nome" => $row[1],
