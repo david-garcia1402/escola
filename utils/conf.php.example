@@ -1,0 +1,6 @@
+$conf = array(
+        'dbHost'     => 'IP_DOCKER',
+        'dbDatabase' => '', //DADOS DO BANCO
+        'dbUser'     => '', //DADOS DO BANCO
+        'dbPass'     => '', //DADOS DO BANCO
+      );
